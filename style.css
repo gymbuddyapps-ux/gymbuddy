@@ -1,0 +1,22 @@
+:root {
+  --bg: #0e0f12;
+  --surface: #16181d;
+  --text: #f4f5f7;
+  --muted: #a6abb5;
+  --accent: #d6ff3c;
+}
+* { box-sizing: border-box; }
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font: 16px/1.7 "IBM Plex Sans Arabic", system-ui, sans-serif;
+}
+main { max-width: 720px; margin: 0 auto; padding: 32px 16px 64px; }
+h1, h2 { font-family: "Changa", sans-serif; text-transform: uppercase; line-height: 1.2; }
+h1 { font-size: 2rem; border-bottom: 4px solid var(--accent); padding-bottom: 8px; }
+h2 { font-size: 1.2rem; margin-top: 2em; color: var(--accent); }
+a { color: var(--accent); }
+.muted { color: var(--muted); }
+.lang { background: var(--surface); border-radius: 12px; padding: 4px 20px 20px; margin-top: 32px; }
+nav a { margin-inline-end: 16px; }
