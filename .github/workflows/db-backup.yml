@@ -24,9 +24,8 @@ jobs:
           DB_URL: ${{ secrets.SUPABASE_DB_URL }}
           PASSPHRASE: ${{ secrets.BACKUP_PASSPHRASE }}
         run: |
-          dump() { pg_dump "$1" --data-only --schema=public --schema=auth --schema=storage --no-owner --no-privileges; }
-          # ponytail: Supabase's shared pooler is aws-0-… or aws-1-… per project; try both rather than guess.
-          { dump "$DB_URL" || dump "${DB_URL/aws-0-/aws-1-}"; } > backup.sql
+          # Full path: the runner's default pg_dump is an older version and refuses a newer server.
+          /usr/lib/postgresql/17/bin/pg_dump "$DB_URL" --data-only --schema=public --schema=auth --schema=storage --no-owner --no-privileges > backup.sql
           test -s backup.sql
           gzip backup.sql
           gpg --batch --symmetric --cipher-algo AES256 --pinentry-mode loopback --passphrase "$PASSPHRASE" -o backup.sql.gz.gpg backup.sql.gz
