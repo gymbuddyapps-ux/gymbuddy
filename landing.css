@@ -332,14 +332,13 @@ footer nav { display: flex; flex-wrap: wrap; gap: 8px 22px; margin-inline-end: a
 /* Men / Ladies Only content: .m shows for men, .f for ladies */
 .f, html[data-pool="female"] .m { display: none; }
 html[data-pool="female"] .f { display: revert; }
-/* ladies hero: tall photo on phones, wide photo on bigger screens */
-.f .hero-photo { object-position: 50% 30%; }
-@media (min-width: 860px) { .f .hero-photo { object-position: 100% 40%; } }
+.hero-photo.f { object-position: 100% 40%; }
 @media (prefers-reduced-motion: no-preference) { .hero .pool { animation: fade .6s 1.9s both; } }
 .match .pair { direction: ltr; } /* keep the two facing each other in Arabic too */
 /* Phones: text sits low, so darken from the bottom only and keep both faces clear */
 @media (max-width: 859px) {
   .hero::before { background: linear-gradient(to top, var(--bg) 28%, rgb(14 15 18 / .6) 55%, transparent 85%); }
-  .hero-photo, .f .hero-photo { object-position: 50% 0; height: 70%; }
+  .hero-photo { height: 70%; }
   .hero-photo.m { object-position: 68% 0; }
+  .hero-photo.f { object-position: 73% 0; }
 }
