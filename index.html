@@ -32,7 +32,10 @@
 
 <section class="hero">
   <img class="hero-photo m" src="img/hero.webp" alt="" width="1600" height="893" fetchpriority="high">
-  <img class="hero-photo f" src="img/hero-f.webp" alt="" width="1000" height="1792" loading="lazy">
+  <picture class="f">
+    <source media="(min-width: 860px)" srcset="img/hero-f-wide.webp">
+    <img class="hero-photo" src="img/hero-f.webp" alt="" loading="lazy">
+  </picture>
   <div class="wrap hero-in">
     <svg class="mark" viewBox="96 120 320 290" aria-hidden="true">
       <g id="m-back" fill="#F4F5F7">
