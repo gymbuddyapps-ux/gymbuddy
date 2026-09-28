@@ -1,23 +1,300 @@
 <!doctype html>
-<html lang="en">
+<html lang="en" dir="ltr">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>GymBuddy</title>
+<title>GymBuddy: find a gym buddy in Obour</title>
+<meta name="description" content="GymBuddy finds you a training partner near you in Obour. Gym buddies, sports plans, partner gym perks. Not a dating app.">
+<meta property="og:title" content="GymBuddy: don't train alone">
+<meta property="og:description" content="Find a training partner near you in Obour. Not a dating app.">
+<meta property="og:image" content="https://gymbuddyapps-ux.github.io/gymbuddy/img/hero.webp">
+<meta name="theme-color" content="#0e0f12">
+<link rel="icon" href="img/logo.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Changa:wght@800&family=IBM+Plex+Sans+Arabic:wght@400;600&display=swap">
-<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="landing.css">
 </head>
 <body>
-<main>
-<h1>GymBuddy</h1>
-<p>Find a gym partner near you in Obour. Not a dating app.</p>
-<p dir="rtl" lang="ar">لاقي شريك تمرين قريب منك في العبور. مش تطبيق مواعدة.</p>
-<nav>
-<a href="privacy.html">Privacy Policy</a>
-<a href="terms.html">Terms of Use</a>
-<a href="delete-account.html">Delete account</a>
-</nav>
-<p class="muted">Contact: <a href="mailto:gym.buddy.apps@gmail.com">gym.buddy.apps@gmail.com</a></p>
+
+<header class="top">
+  <a class="brand" href="#top" aria-label="GymBuddy">
+    <svg viewBox="96 120 320 290" width="38" height="38" aria-hidden="true"><use href="#m-back"/><use href="#m-front"/></svg>
+    <b>Gym<i>Buddy</i></b>
+  </a>
+  <div class="lang" role="group" aria-label="Language">
+    <button type="button" data-lang="en" aria-pressed="true">EN</button>
+    <button type="button" data-lang="ar" aria-pressed="false" lang="ar">عربي</button>
+  </div>
+  <a class="kit small" href="#get"><span data-ar="حمّل التطبيق" data-ar-f="حمّلي التطبيق">Get the app</span></a>
+</header>
+
+<main id="top">
+
+<section class="hero">
+  <img class="hero-photo m" src="img/hero.webp" alt="" width="1600" height="893" fetchpriority="high">
+  <img class="hero-photo f" src="img/hero-f.webp" alt="" width="1000" height="1792" loading="lazy">
+  <div class="wrap hero-in">
+    <svg class="mark" viewBox="96 120 320 290" aria-hidden="true">
+      <g id="m-back" fill="#F4F5F7">
+        <rect x="200" y="136" width="184" height="124" rx="44"/>
+        <path d="M356 270l22 21-22-9z"/>
+      </g>
+      <g id="m-front">
+        <g fill="var(--accent)" stroke="#0E0F12" stroke-width="8" paint-order="stroke">
+          <rect x="108" y="196" width="240" height="170" rx="52"/>
+          <path d="M160 360v36l51-30z" stroke="none"/>
+        </g>
+        <g id="m-bell" fill="#0E0F12">
+          <rect x="180" y="270" width="96" height="23"/>
+          <rect x="158" y="241" width="30" height="80" rx="10"/>
+          <rect x="268" y="241" width="30" height="80" rx="10"/>
+          <rect x="138" y="257" width="22" height="48" rx="8"/>
+          <rect x="296" y="257" width="22" height="48" rx="8"/>
+        </g>
+      </g>
+    </svg>
+    <h1>
+      <span><b data-ar="متتمرنش" data-ar-f="متتمرنيش">Don't train</b></span>
+      <span><b data-ar="لوحدك.">alone.</b></span>
+    </h1>
+    <div class="stripes"></div>
+    <p class="lede" data-ar="جيم بادي بيلاقيلك شريك تمرين قريب منك في العبور. اعمل ماتش، حدد معاد، واظهر." data-ar-f="جيم بادي بيلاقيلك شريكة تمرين قريبة منك في العبور. اعملي ماتش، حددي معاد، واظهري.">GymBuddy finds you a training partner near you in Obour. Match, set a time, show up.</p>
+    <div class="hero-cta">
+      <a class="kit" href="#get"><span data-ar="حمّل التطبيق" data-ar-f="حمّلي التطبيق">Get the app</span></a>
+      <small data-ar="للتمرين بس. مش تطبيق مواعدة.">For training only. Not a dating app.</small>
+    </div>
+    <div class="pool" role="group" aria-label="Pool">
+      <button type="button" data-pool="male" aria-pressed="true" data-ar="رجال">Men</button>
+      <button type="button" data-pool="female" aria-pressed="false" data-ar="سيدات فقط">Ladies Only</button>
+    </div>
+  </div>
+</section>
+
+<section class="feature">
+  <div class="wrap">
+    <div class="copy">
+      <h2 data-ar="لاقي شريك تمرينك" data-ar-f="لاقي شريكة تمرينك">Find your gym buddy</h2>
+      <p class="lede" data-ar="شوف ناس في حيّك بتتمرن في نفس مواعيدك ونفس الجيم. ابعت طلب تمرين، ولو وافقوا الشات بيتفتح وتحددوا أول تمرينة." data-ar-f="شوفي بنات في حيّك بتتمرن في نفس مواعيدك ونفس الجيم. ابعتي طلب تمرين، ولو وافقوا الشات بيتفتح وتحددوا أول تمرينة.">See people in your district who train at your hours and your gym. Send a Train request. If they say yes too, the chat opens and you plan your first session.</p>
+      <ul class="points">
+        <li data-ar="المسافة ومواعيد التمرين على كل كارت">Distance and training hours on every card</li>
+        <li data-ar="حددوا التمرينة من الشات وهيجيلكم تذكير قبلها">Plan the session in the chat and get a reminder before it</li>
+        <li data-ar="قيّم التمرينة بعد ما تخلص" data-ar-f="قيّمي التمرينة بعد ما تخلص">Rate the session when it's done</li>
+      </ul>
+    </div>
+    <div class="phone demo swipe" aria-hidden="true">
+      <div class="tabs"><span class="on" data-ar="شركاء الجيم" data-ar-f="شريكات الجيم">Gym buddies</span><span data-ar="رياضات">Sports</span></div>
+      <div class="stage">
+        <div class="card b">
+          <img class="m" src="img/buddy-b.webp" alt="" loading="lazy"><img class="f" src="img/buddy-fb.webp" alt="" loading="lazy">
+          <span class="kitno">#31</span>
+          <span class="patch">2.4<small data-ar="كم">KM</small></span>
+          <div class="card-info">
+            <h3><span class="m" data-ar="يوسف، ٢٧">Youssef, 27</span><span class="f" data-ar="نور، ٢٣">Nour, 23</span></h3>
+            <p>BIBO GYM</p>
+            <div class="chips"><span data-ar="بالليل">Evenings</span><span data-ar="كارديو">Cardio</span></div>
+          </div>
+        </div>
+        <div class="card a">
+          <img class="m" src="img/buddy-a.webp" alt="" loading="lazy"><img class="f" src="img/buddy-fa.webp" alt="" loading="lazy">
+          <span class="kitno">#07</span>
+          <span class="patch">1.2<small data-ar="كم">KM</small></span>
+          <span class="stamp" data-ar="نتمرن">Train</span>
+          <div class="card-info">
+            <h3><span class="m" data-ar="عمر، ٢٤">Omar, 24</span><span class="f" data-ar="سلمى، ٢٥">Salma, 25</span></h3>
+            <p>Pawlo Gym</p>
+            <div class="chips"><span data-ar="الصبح">Mornings</span><span data-ar="حديد">Strength</span></div>
+          </div>
+        </div>
+        <div class="match">
+          <div class="pair"><img class="m" src="img/buddy-b.webp" alt=""><img class="f" src="img/buddy-fa.webp" alt="" loading="lazy"><img class="m" src="img/buddy-a.webp" alt=""><img class="f" src="img/buddy-fb.webp" alt="" loading="lazy"></div>
+          <p class="display" data-ar="ماتش!">It's a match</p>
+          <p data-ar="الشات اتفتح. حددوا أول تمرينة.">The chat is open. Plan your first session.</p>
+        </div>
+      </div>
+      <div class="actions"><span data-ar="تخطي">Skip</span><span class="go" data-ar="نتمرن">Train</span></div>
+    </div>
+  </div>
+</section>
+
+<div class="stripes"></div>
+
+<section class="feature flip">
+  <div class="wrap">
+    <div class="copy">
+      <h2 data-ar="خطط لكل الرياضات">Plans for every sport</h2>
+      <p class="lede" data-ar="مش الجيم بس. انشر جرية، عجلة، سباحة أو ماتش كورة، حدد المكان وعدد الأماكن، والناس القريبة منك تنضم." data-ar-f="مش الجيم بس. انشري جرية، عجلة، سباحة أو ماتش كورة، حددي المكان وعدد الأماكن، والبنات القريبة منك تنضم.">Not only the gym. Post a run, a ride, a swim or a football game, set the place and the spots, and people near you join.</p>
+      <ul class="points">
+        <li data-ar="شات بيتفتح لكل اللي انضموا">A chat opens for everyone who joined</li>
+        <li data-ar="خطط النهارده وبكرة وباقي الأسبوع">Plans for today, tomorrow and the rest of the week</li>
+        <li data-ar="أماكن محدودة، فالخطة ما تزحمش">Limited spots, so a plan never gets crowded</li>
+      </ul>
+    </div>
+    <div class="phone demo plans" aria-hidden="true">
+      <div class="tabs"><span data-ar="شركاء الجيم" data-ar-f="شريكات الجيم">Gym buddies</span><span class="on" data-ar="رياضات">Sports</span></div>
+      <div class="stage">
+        <div class="day" data-ar="النهارده">Today</div>
+        <div class="plan">
+          <h3 data-ar="ماتش كورة خماسي">Football 5-a-side</h3>
+          <p data-ar="٨:٠٠ م، ملعب نادي العبور">8:00 PM, Obour Club pitch</p>
+          <div class="plan-foot">
+            <div class="faces"><i>A</i><i>M</i><i>K</i><i class="me">+</i></div>
+            <span class="count"><bdi dir="ltr"><span class="swap"><span class="n6">6</span><span class="n7">7</span></span>/10</bdi> <span data-ar="انضموا">joined</span></span>
+            <span class="join live swap"><span class="t-join" data-ar="انضم" data-ar-f="انضمي">Join</span><span class="t-joined" data-ar="منضم" data-ar-f="منضمة">Joined</span></span>
+          </div>
+        </div>
+        <div class="day" data-ar="بكرة">Tomorrow</div>
+        <div class="plan">
+          <h3 data-ar="جرية الصبح ٥ كم">Morning run 5 km</h3>
+          <p data-ar="٦:٣٠ ص، حديقة العبور">6:30 AM, Obour park</p>
+          <div class="plan-foot">
+            <div class="faces"><i>S</i><i>H</i></div>
+            <span class="count"><bdi dir="ltr">2/6</bdi> <span data-ar="انضموا">joined</span></span>
+            <span class="join" data-ar="انضم" data-ar-f="انضمي">Join</span>
+          </div>
+        </div>
+        <div class="plan">
+          <h3 data-ar="سباحة">Swim</h3>
+          <p data-ar="٧:٠٠ م، حمام سباحة النادي">7:00 PM, club pool</p>
+          <div class="plan-foot">
+            <div class="faces"><i>N</i><i>T</i><i>R</i></div>
+            <span class="count"><bdi dir="ltr">4/4</bdi> <span data-ar="انضموا">joined</span></span>
+            <span class="join quiet" data-ar="كامل">Full</span>
+          </div>
+        </div>
+      </div>
+      <span class="fab" data-ar="+ انشر خطة" data-ar-f="+ انشري خطة">+ Post a plan</span>
+    </div>
+  </div>
+</section>
+
+<section class="safe">
+  <div class="wrap">
+    <h2 data-ar="معمول عشان الأمان">Built to be safe</h2>
+    <p class="lede" data-ar="الرجالة والسيدات في مكانين منفصلين تماماً. جرّب شكل كل واحد." data-ar-f="الرجالة والسيدات في مكانين منفصلين تماماً. جرّبي شكل كل واحد.">Men and women train in two fully separate pools. See how each one looks.</p>
+    <div class="pool" role="group" aria-label="Pool">
+      <button type="button" data-pool="male" aria-pressed="true" data-ar="رجال">Men</button>
+      <button type="button" data-pool="female" aria-pressed="false" data-ar="سيدات فقط">Ladies Only</button>
+    </div>
+    <div class="rules">
+      <div>
+        <h3 data-ar="مش تطبيق مواعدة">Not a dating app</h3>
+        <p data-ar="التطبيق للتمرين. البروفايل عن رياضتك والجيم بتاعك ومواعيدك.">It's for training. Profiles are about your sport, your gym and your hours.</p>
+      </div>
+      <div>
+        <h3 data-ar="مكانين منفصلين">Two separate pools</h3>
+        <p data-ar="الرجالة بيشوفوا رجالة، والسيدات بيشوفوا سيدات. الاتنين عمرهم ما بيتقابلوا.">Men see men. Women see women. The two never mix.</p>
+      </div>
+      <div>
+        <h3 data-ar="سيدات فقط بالتوثيق">Ladies Only is verified</h3>
+        <p data-ar="كل سيدة بتسجل فيديو قصير مباشر بحركة معينة قبل ما تنضم.">Every woman records a short live gesture video before she joins.</p>
+      </div>
+      <div>
+        <h3 data-ar="بلّغ واحظر" data-ar-f="بلّغي واحظري">Report and block</h3>
+        <p data-ar="بضغطة واحدة. وفريقنا بيراجع كل بلاغ.">One tap. Our team reviews every report.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="partners">
+  <div class="wrap">
+    <h2 data-ar="شكراً لشركائنا من الجيمات">Thank you to our partner gyms</h2>
+    <p class="lede" data-ar="جيمات العبور دي وقفت مع جيم بادي من أول يوم. وأعضاء التطبيق ليهم مميزات في كل واحد فيهم.">These Obour gyms backed GymBuddy from day one. App members get perks at each of them.</p>
+    <div class="gyms">
+      <article class="gym photo">
+        <img class="bg" src="img/pawlo.webp" alt="" loading="lazy">
+        <div class="crest"><img src="img/pawlo-logo.webp" alt="" loading="lazy"></div>
+        <h3 data-ar="باولو جيم">Pawlo Gym</h3>
+        <p class="where" data-ar="العبور">Obour</p>
+        <ul class="perks"><li data-ar="حصة واحدة ببلاش">1 free session</li><li data-ar="خصم ١٠٪ على الاشتراك">10% off membership</li></ul>
+      </article>
+      <article class="gym photo">
+        <img class="bg" src="img/bibo.webp" alt="" loading="lazy">
+        <div class="crest"><img src="img/bibo-logo.webp" alt="" loading="lazy"></div>
+        <h3 data-ar="بيبو جيم">BIBO GYM</h3>
+        <p class="where" data-ar="زهرة العبور">Zahret El Obour</p>
+        <ul class="perks"><li data-ar="حصة واحدة ببلاش">1 free session</li><li data-ar="خصم ١٠٪ على الاشتراك">10% off membership</li></ul>
+      </article>
+      <article class="gym">
+        <div class="crest"><img src="img/falcon-logo.webp" alt="" loading="lazy"></div>
+        <h3 data-ar="فالكون جيم">Falcon Gym</h3>
+        <p class="where" data-ar="العبور">Obour</p>
+        <ul class="perks"><li data-ar="حصة واحدة ببلاش">1 free session</li><li data-ar="خصم ٧٪ على الاشتراك">7% off membership</li></ul>
+      </article>
+      <article class="gym">
+        <div class="crest">O2</div><!-- swap for <img src="img/o2-logo.webp"> when the logo arrives -->
+        <h3 data-ar="أو تو جيم">O2 GYM</h3>
+        <p class="where" data-ar="العبور">Obour</p>
+        <ul class="perks"><li data-ar="حصة واحدة ببلاش">1 free session</li></ul>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section class="get" id="get">
+  <div class="wrap">
+    <h2 data-ar="انضم للفريق" data-ar-f="انضمي للفريق">Join the squad</h2>
+    <p class="lede" data-ar="قريباً على Google Play و App Store.">Coming soon on Google Play and the App Store.</p>
+    <p class="tester" data-ar="عايز تبقى من أول المجرّبين؟ حمّل الـ APK بتاعنا (أندرويد فقط)." data-ar-f="عايزة تبقي من أول المجرّبات؟ حمّلي الـ APK بتاعنا (أندرويد فقط).">Want to become a test user? Download our APK (Android only).</p>
+    <!-- Build day: replace this link with the new build's APK link. -->
+    <a class="kit" href="https://expo.dev/artifacts/eas/RVzn6TaIGHXlc5CaybEpdcRlholsqwJIhWKslO9QxX4.apk"><span data-ar="حمّل الـ APK" data-ar-f="حمّلي الـ APK">Download the APK</span></a>
+    <p class="note" data-ar="موبايلك ممكن يطلب منك تسمح بالتثبيت. ده طبيعي لأي تطبيق من برّه Google Play. للسن ١٨+ فقط." data-ar-f="موبايلك ممكن يطلب منك تسمحي بالتثبيت. ده طبيعي لأي تطبيق من برّه Google Play. للسن ١٨+ فقط.">Your phone may ask you to allow the install. That is normal for an app from outside Google Play. 18+ only.</p>
+  </div>
+  <div class="stripes"></div>
+</section>
+
 </main>
+
+<footer>
+  <div class="wrap">
+    <nav>
+      <a href="privacy.html" data-ar="سياسة الخصوصية">Privacy Policy</a>
+      <a href="terms.html" data-ar="شروط الاستخدام">Terms of Use</a>
+      <a href="delete-account.html" data-ar="حذف الحساب">Delete account</a>
+      <a href="mailto:gym.buddy.apps@gmail.com">gym.buddy.apps@gmail.com</a>
+    </nav>
+    <!-- Social: turn each span into <a href="..."> when the accounts exist. -->
+    <div class="social"><span>Instagram</span><span>TikTok</span></div>
+  </div>
+</footer>
+
+<script>
+const root = document.documentElement;
+const texts = document.querySelectorAll('[data-ar]');
+
+let lang = 'en';
+
+function setLang(l) {
+  lang = l;
+  const ladies = root.dataset.pool === 'female';
+  texts.forEach(el => {
+    el.dataset.en ??= el.textContent;
+    // Arabic speaks to a woman in Ladies Only (data-ar-f), where the wording differs
+    el.textContent = lang === 'ar' ? (ladies && el.dataset.arF) || el.dataset.ar : el.dataset.en;
+  });
+  root.lang = lang;
+  root.dir = lang === 'ar' ? 'rtl' : 'ltr';
+  document.querySelectorAll('[data-lang]').forEach(b => b.setAttribute('aria-pressed', b.dataset.lang === lang));
+  try { localStorage.setItem('lang', lang); } catch {}
+}
+document.querySelectorAll('[data-lang]').forEach(b => b.onclick = () => setLang(b.dataset.lang));
+
+// Posters can link to ?lang=ar. Otherwise remember the last choice, English by default.
+let saved;
+try { saved = localStorage.getItem('lang'); } catch {}
+const start = new URLSearchParams(location.search).get('lang') || saved;
+if (start === 'ar') setLang('ar');
+
+// Men / Ladies Only switch recolours the whole page.
+document.querySelectorAll('[data-pool]').forEach(b => b.onclick = () => {
+  root.dataset.pool = b.dataset.pool;
+  setLang(lang);
+  document.querySelectorAll('button[data-pool]').forEach(x => x.setAttribute('aria-pressed', x.dataset.pool === b.dataset.pool));
+});
+
+// Phone demos only play while on screen.
+const io = new IntersectionObserver(es => es.forEach(e => e.target.classList.toggle('on', e.isIntersecting)), { threshold: .4 });
+document.querySelectorAll('.demo').forEach(d => io.observe(d));
+</script>
 </body>
 </html>
