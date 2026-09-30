@@ -70,6 +70,29 @@
       <button type="button" data-pool="male" aria-pressed="true" data-ar="رجال">Men</button>
       <button type="button" data-pool="female" aria-pressed="false" data-ar="سيدات فقط">Ladies Only</button>
     </div>
+    <a class="board" href="#kit">
+      <span class="board-no" dir="ltr" aria-hidden="true"><span class="digit"></span><span class="digit"></span></span>
+      <span class="board-txt"><b data-ar="رقم الكيت بتاعك">Your kit number</b><span data-ar="اختار رقمك واعمل الكارت" data-ar-f="اختاري رقمك واعملي الكارت">Pick yours and make your card</span></span>
+    </a>
+  </div>
+  <div class="stripes run"></div>
+</section>
+
+<section class="claim" id="kit">
+  <div class="wrap">
+    <div class="copy">
+      <h2 data-ar="احجز رقم الكيت بتاعك" data-ar-f="احجزي رقم الكيت بتاعك">Claim your kit number</h2>
+      <p class="lede" data-ar="اكتب اسمك واختار رقم من ١ لـ ٩٩، وخد كارت اللاعب بتاعك. الكارت بيتعمل على موبايلك، ومفيش حاجة بتتبعت أو بتتحفظ عندنا." data-ar-f="اكتبي اسمك واختاري رقم من ١ لـ ٩٩، وخدي كارت اللاعبة بتاعك. الكارت بيتعمل على موبايلك، ومفيش حاجة بتتبعت أو بتتحفظ عندنا.">Type your first name, pick a number from 1 to 99 and take your player card with you. The card is made on your phone. Nothing is sent or saved.</p>
+      <div class="fields">
+        <label><span data-ar="الاسم الأول">First name</span><input id="kit-name" type="text" maxlength="12" autocomplete="given-name"></label>
+        <label><span data-ar="الرقم">Number</span><input id="kit-no" type="number" min="1" max="99" inputmode="numeric" dir="ltr"></label>
+      </div>
+      <div class="card-cta">
+        <button class="kit" type="button" id="kit-save"><span data-ar="احفظ الصورة" data-ar-f="احفظي الصورة">Save image</span></button>
+        <button class="kit ghost" type="button" id="kit-share" hidden><span data-ar="شارك الكارت" data-ar-f="شاركي الكارت">Share card</span></button>
+      </div>
+    </div>
+    <canvas id="card" width="1080" height="1350" role="img" aria-label="Player card"></canvas>
   </div>
 </section>
 
@@ -306,14 +329,89 @@ function setLang(l) {
   root.dir = lang === 'ar' ? 'rtl' : 'ltr';
   document.querySelectorAll('[data-lang]').forEach(b => b.setAttribute('aria-pressed', b.dataset.lang === lang));
   try { localStorage.setItem('lang', lang); } catch {}
+  draw();
 }
+
+// Kit number: the hero scoreboard rolls to it, the player card is drawn on a canvas. Nothing leaves the browser.
+const nameIn = document.querySelector('#kit-name');
+const noIn = document.querySelector('#kit-no');
+const card = document.querySelector('#card');
+const digits = document.querySelectorAll('.board .digit');
+digits.forEach(d => d.innerHTML = '<i>' + [...'01234567890123456789'].join('<br>') + '</i>');
+noIn.value = 1 + Math.floor(Math.random() * 99);
+
+const kitNo = () => String(Math.min(99, Math.max(1, parseInt(noIn.value) || 1))).padStart(2, '0');
+
+async function draw() {
+  const no = kitNo();
+  digits.forEach((d, i) => d.style.setProperty('--d', 10 + +no[i]));
+
+  const ar = lang === 'ar', ladies = root.dataset.pool === 'female';
+  const accent = getComputedStyle(root).getPropertyValue('--accent').trim();
+  const name = (nameIn.value.trim() || (ar ? 'اسمك' : 'Your name')).toUpperCase();
+  const slogan = ar ? (ladies ? 'متتمرنيش لوحدك!' : 'متتمرنش لوحدك!') : 'NEVER TRAIN ALONE!';
+  const squad = ar ? 'تمرينة · العبور' : 'TAMRINA · OBOUR';
+  try { await document.fonts.load('800 100px Changa', name + slogan + squad + no); } catch {}
+
+  const c = card.getContext('2d'), W = 1080, H = 1350, bg = '#0e0f12';
+  c.fillStyle = bg;
+  c.fillRect(0, 0, W, H);
+  c.textAlign = 'center';
+  c.direction = ar ? 'rtl' : 'ltr';
+  c.lineJoin = 'round';
+
+  // stripe bands, top and bottom
+  c.fillStyle = accent;
+  for (const y of [0, H - 54]) for (let x = -60; x < W; x += 108) {
+    c.beginPath();
+    c.moveTo(x + 26, y); c.lineTo(x + 92, y); c.lineTo(x + 66, y + 54); c.lineTo(x, y + 54);
+    c.fill();
+  }
+
+  // name over number, like the back of a jersey
+  let size = 170;
+  do c.font = `800 ${size -= 6}px Changa, sans-serif`; while (c.measureText(name).width > 920);
+  c.fillStyle = '#f4f5f7';
+  c.fillText(name, W / 2, 300);
+
+  c.font = '800 760px Changa, sans-serif';
+  c.strokeStyle = '#f4f5f7'; c.lineWidth = 44; c.strokeText(no, W / 2, 960);
+  c.strokeStyle = bg; c.lineWidth = 22; c.strokeText(no, W / 2, 960);
+  c.fillStyle = accent; c.fillText(no, W / 2, 960);
+
+  c.font = '800 76px Changa, sans-serif';
+  c.fillText(slogan, W / 2, 1120);
+  c.font = '800 40px Changa, sans-serif';
+  c.fillStyle = '#a6abb5';
+  c.fillText(squad, W / 2, 1196);
+  c.direction = 'ltr'; // keeps the @ in front in Arabic too
+  c.fillText('@tamrina.squad', W / 2, 1252);
+}
+nameIn.oninput = noIn.oninput = draw;
+
+const cardFile = () => new Promise(done => card.toBlob(b => done(new File([b], `tamrina-kit-${kitNo()}.png`, { type: 'image/png' }))));
+
+document.querySelector('#kit-save').onclick = async () => {
+  const f = await cardFile(), a = document.createElement('a');
+  a.href = URL.createObjectURL(f);
+  a.download = f.name;
+  a.click();
+  URL.revokeObjectURL(a.href);
+};
+
+// Share sheet (WhatsApp, Instagram...) only where the phone can share files
+const shareBtn = document.querySelector('#kit-share');
+try { shareBtn.hidden = !navigator.canShare({ files: [new File([], 'a.png', { type: 'image/png' })] }); } catch {}
+shareBtn.onclick = async () => {
+  try { await navigator.share({ files: [await cardFile()], text: 'Tamrina: ' + location.origin + location.pathname }); } catch {}
+};
 document.querySelectorAll('[data-lang]').forEach(b => b.onclick = () => setLang(b.dataset.lang));
 
 // Posters can link to ?lang=ar. Otherwise remember the last choice, English by default.
 let saved;
 try { saved = localStorage.getItem('lang'); } catch {}
 const start = new URLSearchParams(location.search).get('lang') || saved;
-if (start === 'ar') setLang('ar');
+if (start === 'ar') setLang('ar'); else draw();
 
 // Men / Ladies Only switch recolours the whole page.
 document.querySelectorAll('[data-pool]').forEach(b => b.onclick = () => {
